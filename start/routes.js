@@ -19,7 +19,8 @@ const Route = use('Route')
 Route.post('/register',  'AuthController.register')
 Route.post('/authenticate',  'AuthController.authenticate')
 
-Route.group(()=>{
+Route.group(()=>{  
+  Route.get('lists/today', 'ListController.getToday')
+  Route.get('lists/done', 'ListController.getDone')
   Route.resource('lists', 'ListController').apiOnly();
-
 }).middleware(['auth']);

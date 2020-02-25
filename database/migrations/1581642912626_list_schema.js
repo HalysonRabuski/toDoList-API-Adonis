@@ -14,9 +14,11 @@ class ListSchema extends Schema {
         .references('id')
         .inTable('users')
         .onUpdate('CASCADE')
-        .onDelete('CASCADE');
+        .onDelete('CASCADE')
       table.string('title').notNullable(),
       table.string('description').notNullable(),
+      table.datetime('date').notNullable(),
+      table.boolean('done').defaultTo(false),
       table.timestamps()
     })
   }
